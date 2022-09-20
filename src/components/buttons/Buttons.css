@@ -1,0 +1,16 @@
+.button {
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0px auto;
+    justify-items: right;
+}
+
+.options {
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    width: 350px;
+    display: flex;
+    margin: auto;
+    text-align: center;
+}

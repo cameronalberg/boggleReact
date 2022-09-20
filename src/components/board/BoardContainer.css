@@ -1,0 +1,41 @@
+.board-container {
+    align-content: center;
+    gap: 10px;
+    background-color: #244cdd;
+    padding: 10px;
+    width: 350px;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    border-radius: 5px;
+    display: flex;
+}
+.pulse{
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+.load {
+    display: flex;
+    animation: fade 2s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.97);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade {
+    0%, 100% {opacity: 0}
+    50% {opacity: 1}
+}

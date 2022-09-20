@@ -1,0 +1,13 @@
+.title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+.descriptor {
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: center;
+}

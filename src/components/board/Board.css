@@ -1,0 +1,50 @@
+:root {
+    --board-size: 350px;
+}
+.board-container {
+    align-content: center;
+    gap: 10px;
+    background-color: #244cdd;
+    padding: 10px;
+    width: var(--board-size);
+    height: var(--board-size);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+}
+
+.grid {
+    display: grid;
+    row-gap: 10px;
+    column-gap: 10px;
+    width: var(--board-size);
+    height: var(--board-size);
+}
+
+.grid-template-3 {
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.grid-template-4 {
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+
+.grid-template-5 {
+    grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+}
+
+.grid-template-6 {
+    grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+}
+
+.loading {
+    display: flex;
+    animation: fade 2s linear infinite;
+}
+
+@keyframes fade {
+    0%, 100% {opacity: 0}
+    50% {opacity: 1}
+}
