@@ -1,0 +1,4 @@
+.word-list {
+    overflow: auto;
+    columns: 5;
+}

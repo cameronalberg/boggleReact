@@ -3,6 +3,7 @@
     font-size: 15px;
     margin: 0px auto;
     justify-items: right;
+    font-family: inherit;
 }
 
 .options {

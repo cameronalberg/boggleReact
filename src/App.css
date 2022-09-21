@@ -8,6 +8,8 @@
   background-color: #282c34;
   color: white;
   position: fixed;
+  font-family: "Open Sans", sans-serif;
+  overflow-y: scroll;
 }
 
 .App-logo {
@@ -31,6 +33,8 @@
 
 .results {
   padding: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {

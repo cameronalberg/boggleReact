@@ -1,0 +1,12 @@
+.results-card {
+    background-color: #5a5b5f;
+    color: #dddee2;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.results-transition {
+    transition: width 2s;
+    transition-property: width;
+}

@@ -1,13 +1,13 @@
-import './BoardContainer.css'
+import './BoardCard.css'
 import Buttons from "../buttons/Buttons";
 import Board from "./Board";
 import {useEffect, useState} from "react";
 
-const BoardContainer = (props) => {
+const BoardCard = (props) => {
     const [activeBoard, setActiveBoard] = useState(false)
     const [dice, setDice] = useState([])
     const [boardString, setBoardString] = useState("")
-    const boardSize = 3
+    const boardSize = 4
 
     const generateTemplateBoard = () => {
         if (dice.length !== 0) {
@@ -38,6 +38,12 @@ const BoardContainer = (props) => {
         setBoardString(parsedData)
     }
 
+    const solveHandler = () => {
+        fetch(`https://boggle.calberg.me/solve/?board=${boardString}`)
+            .then((response) => response.json())
+            .then((data) => props.results(data))
+    }
+
     const parse = (data) => {
         return data.replace(/-|\s/g, "")
     }
@@ -53,9 +59,9 @@ const BoardContainer = (props) => {
                         <Board gridSize={boardSize} dice={dice}/>
                     </div>
                 )}
-                <Buttons dice = {boardString} shuffle={generateTemplateBoard}/>
+                <Buttons dice = {boardString} shuffle={generateTemplateBoard} solve={solveHandler}/>
             </div>
         )
 }
 
-export default BoardContainer;
+export default BoardCard;
