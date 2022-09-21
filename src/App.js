@@ -12,6 +12,10 @@ function App() {
       console.log("app dice: " + dice)
     }
     const currentResultsHandler = (data) => {
+        if (data === null || data.length === 0) {
+            setResults("")
+            return
+        }
         const resultsItem = {
             solvedBoard: data.board,
             totalWords: data.numWordsFound,

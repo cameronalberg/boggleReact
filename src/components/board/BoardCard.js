@@ -9,9 +9,10 @@ const BoardCard = (props) => {
     const [boardString, setBoardString] = useState("")
     const boardSize = 4
 
-    const generateTemplateBoard = () => {
+    const shuffleHandler = () => {
         if (dice.length !== 0) {
             setActiveBoard(false)
+            props.results("")
             setDice([])
         }
         fetch(`https://boggle.calberg.me/shuffle/?boardSize=${boardSize}`)
@@ -47,7 +48,7 @@ const BoardCard = (props) => {
     const parse = (data) => {
         return data.replace(/-|\s/g, "")
     }
-        useEffect(() => generateTemplateBoard, [])
+        useEffect(() => shuffleHandler, [])
 
         return (
             <div>
@@ -59,7 +60,7 @@ const BoardCard = (props) => {
                         <Board gridSize={boardSize} dice={dice}/>
                     </div>
                 )}
-                <Buttons dice = {boardString} shuffle={generateTemplateBoard} solve={solveHandler}/>
+                <Buttons dice = {boardString} shuffle={shuffleHandler} solve={solveHandler}/>
             </div>
         )
 }
