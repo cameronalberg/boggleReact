@@ -2,7 +2,10 @@
 
 This is an interactive frontend application to demonstrate the usage of the Boggle Solver API [here](https://github.com/cameronalberg/boggleAPI).
 
-This application was created with React.
+This application was created with React and fetches valid board configurations and solutions via the REST API.
+
+<img src="./demo.png" style="display: block; max-width:50%">
+
 
 ### Getting Started
 
