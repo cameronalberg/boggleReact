@@ -1,17 +1,30 @@
 .button {
     font-weight: bold;
     font-size: 15px;
-    margin: 0px auto;
     justify-items: right;
     font-family: inherit;
+    margin: 5px;
 }
 
 .options {
     font-weight: bold;
     font-size: 15px;
     padding: 10px;
-    width: 350px;
+    min-width: var(--min-board-size);
+    width: 75%;
     display: flex;
+    justify-content: space-between;
     margin: auto;
     text-align: center;
+}
+
+.drop-down {
+    padding-right: 10px;
+    margin: 5px;
+}
+
+select {
+    margin: 5px;
+    font-family: inherit;
+    font-size: 100%;
 }

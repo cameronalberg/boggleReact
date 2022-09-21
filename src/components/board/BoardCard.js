@@ -7,9 +7,10 @@ const BoardCard = (props) => {
     const [activeBoard, setActiveBoard] = useState(false)
     const [dice, setDice] = useState([])
     const [boardString, setBoardString] = useState("")
-    const boardSize = 4
+    const [boardSize, setBoardSize] = useState(4)
 
     const shuffleHandler = () => {
+        console.log("shuffling with board size " + boardSize)
         if (dice.length !== 0) {
             setActiveBoard(false)
             props.results("")
@@ -20,6 +21,10 @@ const BoardCard = (props) => {
                 .then((data) => putDice(data.board))
                 .then(() => setActiveBoard(true))
         return dice
+    }
+
+    const sizeHandler = (event) => {
+        setBoardSize(event.target.value)
     }
 
     const putDice = (data) => {
@@ -60,7 +65,7 @@ const BoardCard = (props) => {
                         <Board gridSize={boardSize} dice={dice}/>
                     </div>
                 )}
-                <Buttons dice = {boardString} shuffle={shuffleHandler} solve={solveHandler}/>
+                <Buttons dice = {boardString} size= {boardSize} changeSize = {sizeHandler} shuffle={shuffleHandler} solve={solveHandler}/>
             </div>
         )
 }
