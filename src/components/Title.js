@@ -3,9 +3,10 @@ import './Title.css';
 const Title = () => {
 
     return (
-        <div>
+        <div className="card">
             <p className="title">Boggle</p>
-            <p className="descriptor">by Cameron Alberg</p>
+            <p className="descriptor">by Cameron Alberg </p>
+            <p><a href="https://github.com/cameronalberg/boggleReact">source code</a></p>
         </div>
     )
 

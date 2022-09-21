@@ -4,6 +4,7 @@
     padding: 10px;
     border-radius: 5px;
     justify-content: center;
+    width: 100%;
 }
 
 .results-transition {

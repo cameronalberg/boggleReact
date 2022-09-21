@@ -2,10 +2,14 @@
     font-weight: bold;
     font-size: 50px;
     margin: 0 auto;
-    text-align: center;
 }
 .descriptor {
     font-weight: normal;
     font-size: 15px;
+}
+a {
+    color: white;
+}
+.card {
     text-align: center;
 }

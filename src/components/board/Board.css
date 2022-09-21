@@ -1,13 +1,12 @@
-:root {
-    --board-size: 350px;
-}
 .board-container {
     align-content: center;
     gap: 10px;
     background-color: #244cdd;
     padding: 10px;
-    width: var(--board-size);
-    height: var(--board-size);
+    min-width: var(--min-board-size);
+    min-height: var(--min-board-size);
+    width: 75%;
+    height: 75%;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -19,8 +18,8 @@
     display: grid;
     row-gap: 10px;
     column-gap: 10px;
-    width: var(--board-size);
-    height: var(--board-size);
+    width: 100%;
+    height: 100%;
 }
 
 .grid-template-3 {
