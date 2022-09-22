@@ -3,8 +3,8 @@
     gap: 10px;
     background-color: #244cdd;
     padding: 10px;
-    /*width: 350px;*/
-    /*height: 350px;*/
+    width: 350px;
+    height: 350px;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -19,6 +19,10 @@
 .load {
     display: flex;
     animation: fade 2s linear infinite;
+}
+
+.activeBoard {
+    transition: transform .35s ease-in-out;
 }
 
 @keyframes pulse {

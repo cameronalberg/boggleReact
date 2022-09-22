@@ -6,9 +6,18 @@
 .descriptor {
     font-weight: normal;
     font-size: 15px;
+    margin: 0 auto;
 }
 a {
     color: white;
+    font-size: 80%;
+}
+
+.link {
+    margin-bottom: 50px;
+    margin-top: 0;
+    /*padding: 20px;*/
+    vertical-align: top;
 }
 .card {
     text-align: center;

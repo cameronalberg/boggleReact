@@ -1,19 +1,23 @@
 .board-container {
+    aspect-ratio: 1;
     align-content: center;
     gap: 10px;
     background-color: #244cdd;
     padding: 10px;
     min-width: var(--min-board-size);
     min-height: var(--min-board-size);
-    width: 75%;
-    height: 75%;
-    max-width: 800px;
-    max-height: 800px;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     border-radius: 5px;
     display: flex;
+}
+
+.active {
+    width: 50%;
+    height: 50%;
+    max-width: 800px;
+    max-height: 800px;
 }
 
 .grid {

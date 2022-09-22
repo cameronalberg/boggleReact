@@ -9,7 +9,7 @@ function App() {
     const [results, setResults] = useState("")
     const currentDiceHandler = (dice) => {
       setCurrentDice(dice)
-      console.log("app dice: " + dice)
+      // console.log("app dice: " + dice)
     }
     const currentResultsHandler = (data) => {
         if (data === null || data.length === 0) {
@@ -24,7 +24,7 @@ function App() {
             allWords: data.words,
         }
         setResults(resultsItem)
-        console.log("got results for solved board: " + resultsItem.solvedBoard)
+        // console.log("got results for solved board: " + resultsItem.solvedBoard)
     }
   return (
       <div className="App">

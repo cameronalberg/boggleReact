@@ -11,12 +11,13 @@ const BoardCard = (props) => {
 
     const shuffleHandler = () => {
         console.log("shuffling with board size " + boardSize)
+        console.log("dice length: " + dice.length)
         if (dice.length !== 0) {
             setActiveBoard(false)
             props.results("")
-            setDice([])
+            setDice((prevState) => {return []})
         }
-        fetch(`https://boggle.calberg.me/shuffle/?boardSize=${boardSize}`)
+        fetch(`https://boggle-api.calberg.me/shuffle/?boardSize=${boardSize}`)
                 .then((response) => response.json())
                 .then((data) => putDice(data.board))
                 .then(() => setActiveBoard(true))
@@ -28,6 +29,8 @@ const BoardCard = (props) => {
     }
 
     const putDice = (data) => {
+        console.log("put dice called: " + dice.length)
+        let tempDice = []
         const parsedData = parse(data)
         // console.log("received data: " + parsedData)
         for (let i = 0; i < parsedData.length; i++) {
@@ -36,16 +39,15 @@ const BoardCard = (props) => {
                 id: i,
                 letter: parsedData[i]
             };
-            setDice((dice) => {
-                return [...dice, templateDie]
-            })
+            tempDice = [...tempDice, templateDie]
         }
+        setDice((prevState) => {return tempDice})
         props.currentDice(parsedData)
         setBoardString(parsedData)
     }
 
     const solveHandler = () => {
-        fetch(`https://boggle.calberg.me/solve/?board=${boardString}`)
+        fetch(`https://boggle-api.calberg.me/solve/?board=${boardString}`)
             .then((response) => response.json())
             .then((data) => props.results(data))
     }
@@ -53,7 +55,11 @@ const BoardCard = (props) => {
     const parse = (data) => {
         return data.replace(/-|\s/g, "")
     }
-        useEffect(() => shuffleHandler, [])
+
+    useEffect(() => {
+        setActiveBoard(false)
+        shuffleHandler()
+    }, [boardSize]);
 
         return (
             <div>
@@ -61,7 +67,7 @@ const BoardCard = (props) => {
                     <div className="board-container pulse">
                             <p className="load">Loading</p>
                     </div>) : (
-                    <div className="board-container">
+                    <div className="board-container active">
                         <Board gridSize={boardSize} dice={dice}/>
                     </div>
                 )}
