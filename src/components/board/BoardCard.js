@@ -34,13 +34,31 @@ const BoardCard = (props) => {
             // console.log("assigning letter: " + parsedData[i])
             const templateDie = {
                 id: i,
-                letter: parsedData[i]
+                letter: parsedData[i],
+                pathDisplay: ""
             };
             tempDice = [...tempDice, templateDie]
         }
         setDice(() => {return tempDice})
         props.currentDice(parsedData)
         setBoardString(parsedData)
+    }
+
+    const displayPath = () => {
+        let tempDice = dice;
+        if (!tempDice || tempDice.length === 0) {
+            return
+        }
+        tempDice = tempDice.map((die) => {
+                if (props.path === false || !props.path.includes(die.id)) {
+                    return {...die, pathDisplay: ""}
+                }
+                else {
+                    return {...die, pathDisplay: "highlight"}
+                }
+            })
+        setDice(() => {return tempDice})
+        // console.log("updated dice with path display: " + props.path)
     }
 
     const solveHandler = () => {
@@ -52,6 +70,12 @@ const BoardCard = (props) => {
     const parse = (data) => {
         return data.replace(/-|\s/g, "")
     }
+
+    useEffect((data) => {
+        displayPath(data)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.path]);
 
     useEffect(() => {
         setActiveBoard(false)

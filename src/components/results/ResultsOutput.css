@@ -4,3 +4,7 @@
     overflow: auto;
     width: 100%;
 }
+
+.results-header {
+    font-size: 85%;
+}

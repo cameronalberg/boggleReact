@@ -11,6 +11,11 @@ function App() {
       setCurrentDice(dice)
       // console.log("app dice: " + dice)
     }
+    const [showPath, setShowPath] = useState(false)
+
+    const showPathHandler = (data) => {
+        setShowPath(data)
+    }
     const currentResultsHandler = (data) => {
         if (data === null || data.length === 0) {
             setResults("")
@@ -31,9 +36,9 @@ function App() {
           <div className= "App-header">
             <Title />
           </div>
-          <BoardCard currentDice={currentDiceHandler} results={currentResultsHandler}/>
+          <BoardCard currentDice={currentDiceHandler} results={currentResultsHandler} path = {showPath}/>
           <div className="results">
-              <ResultsCard dice={currentDice} results={results}/>
+              <ResultsCard dice={currentDice} results={results} displayPath={showPathHandler}/>
           </div>
       </div>
   );

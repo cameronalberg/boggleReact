@@ -2,16 +2,20 @@ import './ResultsOutput.css'
 import WordEntry from "./words/WordEntry";
 
 const ResultsOutput = (props) => {
-
+    const pathHandler = (data) => {
+        props.displayPath(data)
+    }
     return (
         <div>
-            <p><b>Number of Words Found</b>: {props.results.totalWords}</p>
-            <p><b>Total Boggle Score</b>: {props.results.totalScore}</p>
-            {/*off by factor of 10?*/}
-            {/*<p>Boggle API Search Time (ms): {props.results.totalTime}</p>*/}
-            <p><b>Found Words:</b></p>
+            <div className="results-header">
+                <p><b>Number of Words Found</b>: {props.results.totalWords}</p>
+                <p><b>Total Boggle Score</b>: {props.results.totalScore}</p>
+                {/*off by factor of 10?*/}
+                {/*<p>Boggle API Search Time (ms): {props.results.totalTime}</p>*/}
+                <p><b>Found Words</b> (hover for board location and definition):</p>
+            </div>
             <div className="word-list">
-                {props.results.allWords.map((wordObject) => <WordEntry key={Math.random()} word={wordObject.word}/>)}
+                {props.results.allWords.map((wordObject) => <WordEntry key={Math.random()} word={wordObject} path={pathHandler}/>)}
             </div>
         </div>
     )

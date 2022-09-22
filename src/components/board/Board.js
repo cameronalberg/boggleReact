@@ -8,7 +8,7 @@ const Board = (props) => {
     }
         return (
             <div className={'grid ' + gridConfig(props.gridSize)} >
-                    {props.dice.map(die => <Die key= {die.id} id={die.id} letter={die.letter} />)}
+                    {props.dice.map(die => <Die key= {die.id} id={die.id} letter={die.letter} pathDisplay={die.pathDisplay}/>)}
             </div>
         )
 

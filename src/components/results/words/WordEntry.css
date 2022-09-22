@@ -2,3 +2,7 @@
     padding: 3px 20px;
     cursor: pointer;
 }
+
+.word:hover {
+    color: #cecc85;
+}
