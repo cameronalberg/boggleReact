@@ -12,7 +12,7 @@ const ResultsOutput = (props) => {
                 <p><b>Total Boggle Score</b>: {props.results.totalScore}</p>
                 {/*off by factor of 10?*/}
                 {/*<p>Boggle API Search Time (ms): {props.results.totalTime}</p>*/}
-                <p><b>Found Words</b> (hover for board location and definition):</p>
+                <p><b>Found Words</b> (hover for board location):</p>
             </div>
             <div className="word-list">
                 {props.results.allWords.map((wordObject) => <WordEntry key={Math.random()} word={wordObject} path={pathHandler}/>)}

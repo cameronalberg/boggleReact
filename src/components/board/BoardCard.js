@@ -22,6 +22,7 @@ const BoardCard = (props) => {
     }
 
     const sizeHandler = (event) => {
+        props.results("")
         setDice(() => {return []})
         setBoardSize(event.target.value)
     }

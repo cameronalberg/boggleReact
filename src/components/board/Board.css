@@ -30,7 +30,6 @@
 
 .grid-template-3 {
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    height: 100%;
 }
 
 .grid-template-4 {

@@ -11,7 +11,9 @@
     font-size: 15px;
     padding: 10px;
     min-width: var(--min-board-size);
-    width: 75%;
+    max-width: 600px;
+    width: 50%;
+    height: 50%;
     display: flex;
     justify-content: space-between;
     margin: auto;
