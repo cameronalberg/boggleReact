@@ -4,9 +4,9 @@ const Title = () => {
 
     return (
         <div className="card">
-            <p className="title">Boggle</p>
+            <p className="title">Boggle Solver API Demo</p>
             <p className="descriptor">built with React by Cameron Alberg </p>
-            <p className="link"><a href="https://github.com/cameronalberg/boggleReact">(source code)</a> <a href="https://boggle-api.calberg.me">(API usage)</a></p>
+            <p className="link"><a href="/docs.html">(API usage)</a> <a href="https://github.com/cameronalberg/boggleReact">(source code)</a> </p>
         </div>
     )
 

@@ -1,0 +1,188 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Boggle Solver API",
+        "version": "v2.0",
+        "description": {"$ref": "../README.md"}
+    },
+    "servers": [
+        {
+            "url": "http://boggle-api.calberg.me",
+            "description": "Boggle Solver API"
+        }
+    ],
+    "paths": {
+        "/solve": {
+            "get": {
+                "tags":["Usage"],
+                "summary": "Solve board.",
+                "description": "Finds all valid words and their paths within the provided board.",
+                "operationId": "solveBoard",
+                "parameters": [
+                    {
+                        "name": "board",
+                        "in": "query",
+                        "description": "String representation of board characters",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "UETB"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Search results returned.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SolvedBoardResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/shuffle": {
+            "get": {
+                "tags":["Usage"],
+                "summary": "Get a new board.",
+                "description": "Returns a string representation of a valid board.",
+                "operationId": "shuffleBoard",
+                "parameters": [
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "Board dimension size",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 4
+                        },
+                        "example": 4
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad request.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiError"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Returned a valid board.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GeneratedBoardResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "SolvedBoardResponse": {
+                "type": "object",
+                "properties": {
+                    "board": {
+                        "type": "string",
+                        "example": "u-e-t-b"
+                    },
+                    "score": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1
+                    },
+                    "words": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "word": "vet",
+                                "path": [
+                                    3,
+                                    1,
+                                    2
+                                ]
+                            }
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/WordPath"
+                        }
+                    },
+                    "words_found": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1
+                    },
+                    "search_time": {
+                        "type": "string",
+                        "example": "0.05"
+                    }
+                }
+            },
+            "WordPath": {
+                "type": "object",
+                "properties": {
+                    "word": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                },
+                "example": [
+                    {
+                        "word": "vet",
+                        "path": [
+                            3,
+                            1,
+                            2
+                        ]
+                    }
+                ]
+            },
+            "ApiError": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "string",
+                        "example": "bad request"
+                    }
+                }
+            },
+            "GeneratedBoardResponse": {
+                "type": "object",
+                "properties": {
+                    "board": {
+                        "type": "string",
+                        "example": "S-N-O-Y-R-S-B-H-N-I-W-O-R-E-U-E"
+                    }
+                }
+            }
+        }
+    }
+}
