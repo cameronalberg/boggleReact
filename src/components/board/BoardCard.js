@@ -14,7 +14,7 @@ const BoardCard = (props) => {
             setActiveBoard(false)
             props.results("")
         }
-        fetch(`https://boggle-api.calberg.me/shuffle/?boardSize=${boardSize}`)
+        fetch(`https://boggle-api.calberg.me/shuffle/?size=${boardSize}`)
                 .then((response) => response.json())
                 .then((data) => putDice(data.board))
                 .then(() => setActiveBoard(true))
