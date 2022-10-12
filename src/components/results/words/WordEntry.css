@@ -6,3 +6,12 @@
 .word:hover {
     color: #cecc85;
 }
+
+.tooltip {
+    color: white;
+    padding: 5px;
+    background-color: rgb(40, 44, 52);
+    z-index: 10;
+    max-width: 40%;
+    border-radius: 2px;
+}
